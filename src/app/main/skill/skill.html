@@ -1,0 +1,95 @@
+<div id="skill" class="page-layout simple right-sidenav" layout="row">
+
+    <!-- CENTER -->
+    <div class="center" flex ms-scroll>
+
+        <!-- HEADER -->
+        <div class="header md-accent-bg" layout="column" layout-align="space-between">
+            <div layout="row" layout-align="space-between">
+                <div>
+                    <span class="md-display-1 font-weight-300">Welcome back, {{vm.firstname}}</span>
+                </div>
+
+                <div class="toolbar">
+                    <md-button class="md-icon-button sidenav-toggle" ng-click="vm.toggleSidenav('sidenav')" hide-gt-md
+                               aria-label="Toggle sidenav">
+                        <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <!-- / HEADER -->
+
+        <!-- CONTENT -->
+        <div class="content">
+
+
+            <!-- WIDGET GROUP -->
+            <div class="widget-group" layout="row" flex="100" layout-wrap>
+                <ms-widget flippable="false" layout="row" flex="100">
+                    <ms-widget-front class="white-bg">
+                        <div layout="row" layout-align="space-between center" class="ph-16 pt-16 pb-8 md-accent-bg">
+                            <div class="h3">Skills</div>
+                            <md-button ng-click="vm.showCreateDialog()">Add Skill</md-button>
+                        </div>
+
+
+                        <div class="pt-8 pb-32" layout="column" layout-align="left left">
+                            <div class="red-fg font-size-72 line-height-72">
+                                {{vm.jobs[vm.jobs.length - 1].progress}}
+                            </div>
+
+                            <div layout="row" layout-align="start center" layout-wrap>
+
+                                <div flex="100" flex-gt-xs="50" flex-gt-md="25"
+                                     ng-repeat="skill in vm.skills">
+                                    <div class="p-16 pb-32">
+                                        <div class="pb-8" layout="row" layout-align="space-between start">
+                                            <span class="h3">{{skill.skill.name}}</span>
+                                            <div>
+                                                <span class="h3 secondary-text font-weight-500">{{skill.level}}%</span>
+                                                <md-menu>
+                                                    <md-button class="md-icon-button" ng-click="$mdOpenMenu()"
+                                                               aria-label="more">
+                                                        <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+                                                    </md-button>
+
+                                                    <md-menu-content width="3">
+                                                        <md-menu-item>
+                                                            <md-button ng-click="vm.showEditDialog(skill)"
+                                                                       aria-label="Refresh widget">
+                                                                Edit
+                                                            </md-button>
+                                                        </md-menu-item>
+                                                        <md-menu-item>
+                                                            <md-button
+                                                                    ng-click="vm.deleteSkill(skill, $index)"
+                                                                    aria-label="Delete Skill">
+                                                                Delete
+                                                            </md-button>
+                                                        </md-menu-item>
+                                                    </md-menu-content>
+                                                </md-menu>
+                                            </div>
+
+                                        </div>
+                                        <md-progress-linear md-mode="determinate"
+                                                            value="{{skill.level}}"></md-progress-linear>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </ms-widget-front>
+                </ms-widget>
+            </div>
+            <!-- / WIDGET GROUP -->
+
+
+        </div>
+        <!-- / CONTENT -->
+
+    </div>
+
+</div>

@@ -1,0 +1,86 @@
+<div class="page-layout carded fullwidth" layout="row">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg md-accent-bg"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center" layout="column" flex>
+
+        <!-- CONTENT HEADER -->
+        <div class="header">
+
+
+            <div class="white-fg" layout="row" layout-align="start center" flex>
+                <md-button class="goto-products-button md-icon-button" aria-label="Go to products"
+                           ng-click="vm.gotoJobs()"
+                           translate translate-attr-aria-label="EC.GO_TO_PRODUCTS">
+                    <md-icon md-font-icon="icon-arrow-left"></md-icon>
+                </md-button>
+
+                <div layout="row" layout-align="start center">
+                    <div layout="column" layout-align="start start">
+                        <div class="subtitle secondary-text">
+                            <span class="h2 white-fg">Job Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card" layout="column" flex>
+
+            <!-- CONTENT TOOLBAR -->
+            <div class="toolbar" layout="row" layout-align="start center">
+
+                <span>{{vm.job.name}}</span>
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+
+            <!-- CONTENT -->
+            <md-content class="content" flex ms-scroll>
+
+                <div class="p-5">
+                    <span class="md-display-1">Name</span> <br/>
+                    <span class="md-headline">{{vm.job.name}}</span> <br/>
+                </div>
+
+                <div class="p-5">
+                    <span class="md-display-1">Description</span> <br/>
+                    <span class="md-headline">{{vm.job.description}}</span> <br/>
+                </div>
+
+                <div class="p-5">
+                    <span class="md-display-1">Salary</span> <br/>
+                    <span class="md-headline">{{vm.job.salary}} TND</span> <br/>
+                </div>
+
+                <div class="p-5">
+                    <span class="md-display-1">Status</span> <br/>
+                    <i ng-if="vm.job.status == 'CLOSED'" class="icon-cancel red-500-fg"></i>
+                    <i ng-if="vm.job.status == 'OPEN'" class="icon-checkbox-marked-circle green-500-fg"></i>
+                    <span class="md-headline">
+                        {{vm.job.status}}
+                    </span>
+                    <br/>
+                </div>
+
+                <span class="md-display-2">Extra Columns</span> <br/>
+
+                <div class="p-5" ng-repeat="field in vm.fields">
+                    <span class="md-display-1">{{field.jobField.fieldName}}</span> <br/>
+                    <span class="md-headline">{{field.value}}</span> <br/>
+                </div>
+
+            </md-content>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

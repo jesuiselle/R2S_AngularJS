@@ -1,0 +1,53 @@
+<md-dialog class="certification-form-dialog" aria-label="New Message">
+    <form name="certificationForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">{{vm.dialogTitle}}</span>
+                <md-button class="md-icon-button" ng-click="vm.deleteCertificate()" aria-label="Close dialog">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content ms-scroll>
+            <md-input-container class="md-block">
+                <label>Name</label>
+                <input name="title" ng-model="vm.newCertification.name" required md-autofocus>
+                <div ng-messages="certificationForm.title.$error" ng-show="certificationForm.title.$touched"
+                     role="alert">
+                    <div ng-message="required">
+                        <span>Title field is required</span>
+                    </div>
+                </div>
+            </md-input-container>
+
+
+            <div layout="row" class="date-row">
+                <md-datepicker ng-model="vm.newCertification.dateStart" md-placeholder="Start Date"
+                               ng-required="true"></md-datepicker>
+
+                <md-datepicker ng-model="vm.newCertification.dateEnd" md-min-date="vm.newCertification.dateStart"
+                               md-placeholder="End Date"></md-datepicker>
+            </div>
+
+
+            <md-input-container class="md-block" flex>
+                <label>Link to Certification</label>
+                <input ng-model="vm.newCertification.url">
+            </md-input-container>
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <md-button ng-click="vm.saveCertificate()" class="save-button md-accent md-raised" aria-label="SAVE"
+                       ng-disabled="certificationForm.$invalid || certificationForm.$pristine">
+                {{vm.action}} Certification
+            </md-button>
+
+            <md-button class="md-icon-button" ng-click="vm.deleteCertificate()" aria-label="Cancel">
+                <md-icon md-font-icon="icon-delete"></md-icon>
+                <md-tooltip><span>Cancel</span></md-tooltip>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

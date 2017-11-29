@@ -1,0 +1,64 @@
+<md-dialog class="experience-form-dialog" aria-label="New Message">
+    <form name="experienceForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">{{vm.dialogTitle}}</span>
+                <md-button class="md-icon-button" ng-click="vm.deleteCertificate()" aria-label="Close dialog">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content ms-scroll>
+            <md-input-container class="md-block">
+                <label>Job Title</label>
+                <input name="title" ng-model="vm.newExperience.jobTitle" required md-autofocus>
+                <div ng-messages="experienceForm.title.$error" ng-show="experienceForm.title.$touched"
+                     role="alert">
+                    <div ng-message="required">
+                        <span>Title field is required</span>
+                    </div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Organization</label>
+                <input name="organization" ng-model="vm.newExperience.organization" required>
+                <div ng-messages="experienceForm.organization.$error" ng-show="experienceForm.organization.$touched"
+                     role="alert">
+                    <div ng-message="required">
+                        <span>Organization field is required</span>
+                    </div>
+                </div>
+            </md-input-container>
+
+
+            <div layout="row" class="date-row">
+                <md-datepicker ng-model="vm.newExperience.dateStart" md-placeholder="Start Date"
+                               ng-required="true"></md-datepicker>
+
+                <md-datepicker ng-model="vm.newExperience.dateEnd" md-min-date="vm.newExperience.dateStart"
+                               md-placeholder="End Date"></md-datepicker>
+            </div>
+
+
+            <md-input-container class="md-block" flex>
+                <label>Description</label>
+                <textarea ng-model="vm.newExperience.description" rows="3"/>
+            </md-input-container>
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <md-button ng-click="vm.saveExperience()" class="save-button md-accent md-raised" aria-label="SAVE"
+                       ng-disabled="experienceForm.$invalid || experienceForm.$pristine">
+                {{vm.action}} Experience
+            </md-button>
+
+            <md-button class="md-icon-button" ng-click="vm.deleteExperience()" aria-label="Cancel">
+                <md-icon md-font-icon="icon-delete"></md-icon>
+                <md-tooltip><span>Cancel</span></md-tooltip>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

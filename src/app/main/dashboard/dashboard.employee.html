@@ -1,0 +1,121 @@
+<div id="dashboard-project" class="page-layout simple right-sidenav" layout="row">
+
+    <!-- CENTER -->
+    <div class="center" flex ms-scroll>
+
+        <!-- HEADER -->
+        <div class="header md-accent-bg" layout="column" layout-align="space-between">
+            <div layout="row" layout-align="space-between">
+                <div>
+                    <span class="md-display-1 font-weight-300">Welcome back, {{vm.firstname}}</span>
+                </div>
+
+                <div class="toolbar">
+                    <md-button class="md-icon-button sidenav-toggle" ng-click="vm.toggleSidenav('sidenav')" hide-gt-md
+                               aria-label="Toggle sidenav">
+                        <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <!-- / HEADER -->
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <md-tabs md-dynamic-height>
+
+                <md-tab label="Home">
+
+                    <!-- WIDGET GROUP -->
+                    <div class="widget-group" layout="row" flex="100" layout-wrap>
+
+                        <!-- WIDGET 1
+
+                        <!-- WIDGET 1 -->
+
+                        <!-- WIDGET 2 -->
+                        <ms-widget flippable="true" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25">
+
+                            <!-- Front -->
+                            <ms-widget-front class="white-bg">
+                                <div class="pl-16 pr-8 pv-16 h-55" layout="row" layout-align="space-between center">
+
+                                </div>
+
+                                <div class="pt-8 pb-32" layout="column" layout-align="center center">
+                                    <div class="red-fg font-size-72 line-height-72">
+                                        {{vm.refferedCount}}
+                                    </div>
+                                    <div class="h3 secondary-text font-weight-500">Reffered Count</div>
+                                </div>
+
+                                <div class="p-8 grey-50-bg border-top" layout="row" layout-align="space-between center">
+                                    <div class="h3"></div>
+                                    <md-button ng-click="vm.gotoReferee()">Details</md-button>
+                                </div>
+                            </ms-widget-front>
+                            <!-- / Front -->
+
+                            <!-- / Back -->
+
+                        </ms-widget>
+                        <!-- / WIDGET 2 -->
+
+                        <!-- WIDGET 3 -->
+                        <ms-widget flippable="true" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25">
+
+                            <!-- Front -->
+                            <ms-widget-front class="white-bg">
+                                <div class="pl-16 pr-8 pv-16 h-55" layout="row" layout-align="space-between center">
+                                    <div class="h3">{{vm.widget3.title}}</div>
+
+                                </div>
+
+                                <div class="pt-8 pb-32" layout="column" layout-align="center center">
+                                    <div class="orange-fg font-size-72 line-height-72">
+                                        {{vm.rewards}}
+                                    </div>
+                                    <div class="h3 secondary-text font-weight-500">Rewards Points</div>
+                                </div>
+
+                                <div class="p-16 grey-50-bg border-top" layout="row" layout-align="start center">
+                                    <span class="h4 secondary-text text-truncate">{{vm.widget3.data.extra.label}}:</span>
+                                    <span class="h4 ml-8">{{vm.widget3.data.extra.count}}</span>
+                                </div>
+                            </ms-widget-front>
+                            <!-- / Front -->
+
+                            <!-- Back -->
+                            <ms-widget-back class="p-16 white-bg">
+                                <div class="flip-to-front">
+                                    <md-button class="md-icon-button" ng-click="flipWidget()"
+                                               aria-label="Flip widget">
+                                        <md-icon md-font-icon="icon-close" class="s16"></md-icon>
+                                    </md-button>
+                                </div>
+
+                                <div>
+                                    {{vm.widget3.detail}}
+                                </div>
+                            </ms-widget-back>
+                            <!-- / Back -->
+
+                        </ms-widget>
+                        <!-- / WIDGET 3 -->
+
+                        <!-- / WIDGET 4 -->
+
+                    </div>
+                    <!-- / WIDGET GROUP -->
+
+                </md-tab>
+
+            </md-tabs>
+
+        </div>
+        <!-- / CONTENT -->
+
+    </div>
+
+</div>

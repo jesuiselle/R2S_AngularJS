@@ -1,0 +1,195 @@
+#dashboard-project {
+
+    > .center {
+
+        > .header {
+            height: 160px;
+            min-height: 160px;
+            max-height: 160px;
+            padding-bottom: 0;
+
+            .selected-project {
+                background: rgba(0, 0, 0, 0.12);
+                color: #FFFFFF;
+                padding: 8px 16px;
+                height: 40px;
+                line-height: 24px;
+                font-size: 16px;
+            }
+
+            .project-selector {
+                margin-left: 1px;
+                border-radius: 0;
+                background: rgba(0, 0, 0, 0.12);
+
+                md-icon {
+                    color: #FFFFFF;
+                }
+            }
+        }
+
+        > .content {
+            background: none;
+            padding: 0;
+
+            > md-tabs {
+
+                > md-tabs-wrapper {
+                    background: #FFFFFF;
+                    box-shadow: $whiteframe-shadow-1dp;
+                    padding: 0 24px;
+
+                    md-tabs-canvas {
+                        height: 56px;
+
+                        md-pagination-wrapper {
+                            height: 56px;
+                        }
+
+                        .md-tab {
+                            padding: 16px 24px;
+                            text-transform: none;
+                        }
+                    }
+                }
+
+                &:not(.md-dynamic-height) {
+
+                    md-tabs-content-wrapper {
+                        top: 56px;
+                    }
+                }
+
+                > md-tabs-content-wrapper {
+
+                    md-tab-content {
+                        padding: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    > .sidenav {
+        width: 330px;
+        min-width: 330px;
+        max-width: 330px;
+        padding: 0;
+        z-index: 51;
+        box-shadow: $whiteframe-shadow-8dp;
+
+        &.md-locked-open {
+            width: 250px;
+            min-width: 250px;
+            max-width: 250px;
+            z-index: 2;
+            box-shadow: none;
+            background: material-color('grey', '200');
+        }
+    }
+
+    #widgets {
+
+    }
+
+    .content {
+        padding: 0;
+
+        #calendarView {
+
+            &.fc {
+
+                .fc-widget-header {
+                    border: none;
+                    color: rgba(0, 0, 0, 0.54);
+
+                    .fc-day-header {
+                        text-align: left;
+                        border: none;
+                        font-weight: 500;
+                        padding: 8px;
+                    }
+                }
+
+                .fc-widget-content {
+                    color: rgba(0, 0, 0, 0.54);
+
+                    .fc-day-grid-container {
+
+                        .fc-day-grid {
+
+                            .fc-day-number {
+                                text-align: left;
+                                padding: 8px 8px 0 8px;
+                            }
+                        }
+                    }
+
+                    .fc-time-grid-container {
+                        overflow: hidden;
+                        height: auto !important;
+
+                        .fc-axis {
+                            font-weight: 500;
+                            border: none;
+                        }
+                    }
+                }
+
+                .fc-day-grid-event {
+                    margin: 4px 8px 0 8px;
+                    padding: 2px 4px;
+                    font-size: 13px;
+                    color: #FFFFFF;
+                }
+
+                .fc-time-grid-event {
+                    color: #FFFFFF;
+                }
+
+                .fc-month-view {
+                    padding: 24px;
+                }
+
+                .fc-agenda-view {
+
+                    .fc-widget-header {
+
+                        .fc-day-header {
+                            border: 1px solid #DDD;
+                            line-height: 50px;
+                            font-size: 17px;
+                        }
+                    }
+
+                    > table > tbody > tr > td.fc-widget-content {
+                        border: none;
+                    }
+
+                    .fc-minor .fc-widget-content {
+                        border-top: none;
+                    }
+
+                    .fc-week, .fc-day {
+                        height: 100px !important;
+                    }
+
+                    .fc-widget-content {
+                        height: 50px;
+                    }
+
+                    .fc-axis {
+                        padding-left: 24px;
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+.fc-title{
+  white-space: normal!important;
+  word-break: break-word;
+}

@@ -1,0 +1,123 @@
+<div id="register" class="flex-scrollable" layout="column" ms-scroll>
+    <div id="register-form-wrapper" layout="column" layout-align="center center">
+        <div id="register-form" class="md-whiteframe-8dp">
+            <div class="logo md-accent-bg">
+                <span>R2S</span>
+            </div>
+
+            <div class="title">
+                You have been refered by <b>{{vm.refered.employee.firstname}} {{vm.refered.employee.lastname}}</b>
+                For the job <b>{{vm.refered.job.name}}</b>
+            </div>
+            <div class="title" style="color: red" ng-show="vm.message != null">{{vm.message}}</div>
+            <form name="registerForm" novalidate>
+
+                <md-input-container class="md-block" md-no-float>
+                    <input type="text" name="cin" ng-model="vm.form.cin" placeholder="cin"
+                           required>
+                    <div ng-messages="registerForm.cin.$error" role="alert" multiple>
+                        <div ng-message="required">
+                            <span>cin field is required</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <div layout-gt-sm="row" layout-align="start center" class="layout-gt-sm-row layout-align-start-center">
+                    <md-input-container class="md-block" md-no-float>
+                        <input type="text" name="firstname" ng-model="vm.form.firstname" placeholder="firstname"
+                               required>
+                        <div ng-messages="registerForm.firstname.$error" role="alert" multiple>
+                            <div ng-message="required">
+                                <span>firstname field is required</span>
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" md-no-float>
+                        <input type="text" name="lastname" ng-model="vm.form.lastname" placeholder="lastname"
+                               required>
+                        <div ng-messages="registerForm.lastname.$error" role="alert" multiple>
+                            <div ng-message="required">
+                                <span>lastname field is required</span>
+                            </div>
+
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row" layout-align="start center" class="layout-gt-sm-row layout-align-start-center">
+                    <md-input-container class="md-block" md-no-float>
+                        <input type="text" name="username" ng-model="vm.form.username" placeholder="Username"
+                               required>
+                        <div ng-messages="registerForm.username.$error" role="alert" multiple>
+                            <div ng-message="required">
+                                <span>Username field is required</span>
+                            </div>
+
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" md-no-float>
+                        <input type="password" name="password" ng-model="vm.form.password" placeholder="Password"
+                               required>
+                        <div ng-messages="registerForm.password.$error" role="alert">
+                            <div ng-message="required">
+                                <span>Password field is required</span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <md-input-container class="md-block" md-no-float>
+                    <input type="text" name="email" ng-model="vm.form.email" placeholder="email"
+                           required>
+                    <div ng-messages="registerForm.email.$error" role="alert" multiple>
+                        <div ng-message="required">
+                            <span>email field is required</span>
+                        </div>
+
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" md-no-float>
+                    <input type="text" name="tel" ng-model="vm.form.tel" placeholder="tel"
+                           required>
+                    <div ng-messages="registerForm.tel.$error" role="alert" multiple>
+                        <div ng-message="required">
+                            <span>tel field is required</span>
+                        </div>
+
+                    </div>
+                </md-input-container>
+                <div layout-gt-sm="row" layout-align="start center" class="layout-gt-sm-row layout-align-start-center">
+                    <md-input-container class="md-block" md-no-float>
+                        <input type="text" name="country" ng-model="vm.form.address.country" placeholder="country"
+                               required>
+                        <div ng-messages="registerForm.address.country.$error" role="alert" multiple>
+                            <div ng-message="required">
+                                <span>country field is required</span>
+                            </div>
+
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" md-no-float>
+                        <input type="text" name="city" ng-model="vm.form.address.city" placeholder="city"
+                               required>
+                        <div ng-messages="registerForm.address.city.$error" role="alert" multiple>
+                            <div ng-message="required">
+                                <span>city field is required</span>
+                            </div>
+
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-button type="submit" class="md-raised md-accent submit-button" aria-label="LOG IN"
+                           ng-disabled="registerForm.$invalid || registerForm.$pristine" ng-click="vm.register()">
+                    REGISTER
+                </md-button>
+
+
+            </form>
+        </div>
+    </div>
+</div>

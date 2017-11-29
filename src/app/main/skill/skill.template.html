@@ -1,0 +1,47 @@
+<md-dialog class="skill-form-dialog" aria-label="New Message">
+    <form name="skillForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">{{vm.dialogTitle}}</span>
+                <md-button class="md-icon-button" ng-click="vm.deleteSkill()" aria-label="Close dialog">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content ms-scroll>
+
+            <md-input-container>
+                <label>Skill</label>
+                <md-select ng-model="vm.newSkill.skill">
+                    <md-option><em>Chose a Skill</em></md-option>
+                    <md-option ng-repeat="skill in vm.skills" ng-value="skill">
+                        {{skill.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-slider-container>
+                <span>Level</span>
+                <md-slider flex min="0" max="100" ng-model="vm.newSkill.level" id="level" aria-label="Level">
+                </md-slider>
+                <md-input-container>
+                    <input flex type="number" ng-model="vm.newSkill.level" aria-label="Level">
+                </md-input-container>
+            </md-slider-container>
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <md-button ng-click="vm.saveSkill()" class="save-button md-accent md-raised" aria-label="SAVE"
+                       ng-disabled="skillForm.$invalid || skillForm.$pristine">
+                {{vm.action}} Skill
+            </md-button>
+
+            <md-button class="md-icon-button" ng-click="vm.deleteSkill()" aria-label="Cancel">
+                <md-icon md-font-icon="icon-delete"></md-icon>
+                <md-tooltip><span>Cancel</span></md-tooltip>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

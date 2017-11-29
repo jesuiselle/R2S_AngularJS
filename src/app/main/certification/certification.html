@@ -1,0 +1,132 @@
+<div id="certification" class="page-layout simple right-sidenav" layout="row">
+
+    <!-- CENTER -->
+    <div class="center" flex ms-scroll>
+
+        <!-- HEADER -->
+        <div class="header md-accent-bg" layout="column" layout-align="space-between">
+            <div layout="row" layout-align="space-between">
+                <div>
+                    <span class="md-display-1 font-weight-300">Welcome back, {{vm.firstname}}</span>
+                </div>
+
+                <div class="toolbar">
+                    <md-button class="md-icon-button sidenav-toggle" ng-click="vm.toggleSidenav('sidenav')" hide-gt-md
+                               aria-label="Toggle sidenav">
+                        <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <!-- / HEADER -->
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <md-tabs md-dynamic-height>
+
+                <md-tab label="Certifications">
+
+                    <!-- WIDGET GROUP -->
+                    <div class="widget-group" layout="row" flex="100" layout-wrap>
+
+                        <ms-widget flippable="true" layout="column" flex="100" flex-gt-xs="100" flex-gt-md="25"
+                                   ng-repeat="certification in vm.certifications">
+
+                            <!-- Front -->
+                            <ms-widget-front class="white-bg">
+                                <div class="pl-16 pr-8 pv-16 h-55" layout="row" layout-align="space-between center">
+                                    <div></div>
+                                    <md-menu>
+                                        <md-button class="md-icon-button" ng-click="$mdOpenMenu()"
+                                                   aria-label="more">
+                                            <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+                                        </md-button>
+
+                                        <md-menu-content width="3">
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.showEditDialog(certification)"
+                                                           aria-label="Refresh widget">
+                                                    Edit
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.deleteCertification(certification, $index)"
+                                                           aria-label="Refresh widget">
+                                                    Delete
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </div>
+
+                                <div class="pb-10" layout="column" layout-align="center center">
+                                    <div class="red-fg font-size-20 ">
+                                        {{certification.name}}
+                                    </div>
+
+
+                                    <div class="h3 secondary-text font-weight-500 pt-10">Certification eligible</div>
+                                    <div layout-align="space-between center" layout="row">
+                                        <div class="h3 black-text font-weight-500 pr-20">From:
+                                            {{certification.dateStart | date}}
+                                        </div>
+                                        <div class="h3 black-text font-weight-500">To:
+                                            {{ (certification.dateEnd | date) || "Never"}}
+                                        </div>
+                                    </div>
+
+                                    <div class="h3 secondary-text font-weight-500"></div>
+
+                                    <md-button ng-if="certification.url" class="md-raised reference-button"
+                                               style="margin-left: 250px"
+                                               href="http://{{certification.url}}"
+                                               target="_blank">
+                                        <md-icon md-font-icon="icon-link"></md-icon>
+                                        <span>Link</span>
+                                    </md-button>
+                                </div>
+
+                            </ms-widget-front>
+
+                        </ms-widget>
+
+                        <ms-widget flippable="true" layout="column" flex="100" flex-gt-xs="100" flex-gt-md="25"
+                                   style="cursor: pointer;" ng-click="vm.showCreateDialog()">
+
+                            <!-- Front -->
+                            <ms-widget-front class="white-bg">
+                                <div class="pl-16 pr-8 pv-16 h-60" layout="row" layout-align="space-between center">
+
+                                </div>
+
+                                <div class="" layout="column" layout-align="center center">
+                                    <div>
+                                        <span class="logo-icon">
+                                            <md-icon md-font-icon="icon-plus-circle-outline" ng-class='"plusSign"'
+
+                                                     class="pr-90"></md-icon>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="pl-16 pr-8 pv-16 h-90" layout="row" layout-align="space-between center">
+
+                                </div>
+
+                            </ms-widget-front>
+
+                        </ms-widget>
+                    </div>
+                    <!-- / WIDGET GROUP -->
+
+
+                </md-tab>
+
+            </md-tabs>
+
+        </div>
+        <!-- / CONTENT -->
+
+    </div>
+
+</div>
